@@ -12,7 +12,7 @@ resource "aws_key_pair" "aws_Pkey" {
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
 
-resource "aws_secretsmanager_secret_version" "test-secret-v1" {
+resource "aws_secretsmanager_secret_version" "test-secret-v2" {
   secret_id     = "${aws_secretsmanager_secret.aws-secret-v4.id}"
   secret_string = "${tls_private_key.key.private_key_pem}"
 
@@ -22,7 +22,7 @@ resource "local_file" "ec2-private-key" {
   filename = "./secret-key.pem"
 }
 
-resource "aws_s3_bucket" "terraformbucketboytefaaaaboyyyyyyy" {
+resource "aws_s3_bucket" "terraformbucketboytefaaaaboyyyyyyyy" {
   bucket = "terraformbucketboytefaaaaboyyyyyyy"
   acl    = "private"
 
@@ -33,7 +33,7 @@ resource "aws_s3_bucket" "terraformbucketboytefaaaaboyyyyyyy" {
 }
 
 resource "aws_s3_bucket_object" "bucket-object-mo-boy" {
-  bucket = "${aws_s3_bucket.terraformbucketboytefaaaaboyyyyyyy.bucket}"
+  bucket = "${aws_s3_bucket.terraformbucketboytefaaaaboyyyyyyyy.bucket}"
   key    = "bucket-object-key-boy"
   source = "./secret-key.pem"
 }
