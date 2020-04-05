@@ -1,6 +1,6 @@
 resource "aws_instance" "this" {
 
-  ami           = "07eda9385feb1e969"
+  ami           = "ami-07eda9385feb1e969"
   
   instance_type = "t2.micro"
   
