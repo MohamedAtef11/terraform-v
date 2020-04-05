@@ -3,8 +3,8 @@ resource "tls_private_key" "key" {
   rsa_bits  = 2048
 }
 
-resource "aws_secretsmanager_secret" "aws-secret-3" {
-  name = "aws-secret-3"
+resource "aws_secretsmanager_secret" "aws-secret-manger" {
+  name = "aws-secret-manger"
 }
 
 resource "aws_key_pair" "aws_Pkey" {
@@ -12,8 +12,8 @@ resource "aws_key_pair" "aws_Pkey" {
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
 
-resource "aws_secretsmanager_secret_version" "test-secret" {
-  secret_id     = "${aws_secretsmanager_secret.aws-secret-3.id}"
+resource "aws_secretsmanager_secret_version" "test-secret-1" {
+  secret_id     = "${aws_secretsmanager_secret.aws-secret-manger.id}"
   secret_string = "${tls_private_key.key.private_key_pem}"
 
 }
