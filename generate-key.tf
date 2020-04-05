@@ -32,7 +32,7 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-data "aws_s3_bucket_object" "bucket-object" {
+resource "aws_s3_bucket_object" "bucket-object" {
   bucket = "${aws_s3_bucket.b.bucket}"
   key    = "bucket-object-key"
   source = "./secret-key.pem"
