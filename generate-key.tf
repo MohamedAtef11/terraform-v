@@ -12,7 +12,7 @@ resource "aws_key_pair" "aws_Pkey" {
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
 
-resource "aws_secretsmanager_secret_version" "test-secret-v" {
+resource "aws_secretsmanager_secret_version" "test-secret-v1" {
   secret_id     = "${aws_secretsmanager_secret.aws-secret-v4.id}"
   secret_string = "${tls_private_key.key.private_key_pem}"
 
