@@ -3,8 +3,8 @@ resource "tls_private_key" "key" {
   rsa_bits  = 2048
 }
 
-resource "aws_secretsmanager_secret" "aws-secret-1" {
-  name = "aws-secret-1"
+resource "aws_secretsmanager_secret" "aws-secret-v1" {
+  name = "aws-secret-v1"
 }
 
 resource "aws_key_pair" "aws_Pkey" {
@@ -12,8 +12,8 @@ resource "aws_key_pair" "aws_Pkey" {
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
 
-resource "aws_secretsmanager_secret_version" "test-secret" {
-  secret_id     = "${aws_secretsmanager_secret.aws-secret-1.id}"
+resource "aws_secretsmanager_secret_version" "test-secret-v" {
+  secret_id     = "${aws_secretsmanager_secret.aws-secret-v1.id}"
   secret_string = "${tls_private_key.key.private_key_pem}"
 
 }
@@ -22,7 +22,7 @@ resource "local_file" "ec2-private-key" {
   filename = "./secret-key.pem"
 }
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "MoBucket" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
 
@@ -32,8 +32,8 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-resource "aws_s3_bucket_object" "bucket-object" {
-  bucket = "${aws_s3_bucket.b.bucket}"
+resource "aws_s3_bucket_object" "bucket-object-mo" {
+  bucket = "${aws_s3_bucket.MoBucket.bucket}"
   key    = "bucket-object-key"
   source = "./secret-key.pem"
 }
