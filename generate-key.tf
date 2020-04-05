@@ -22,7 +22,7 @@ resource "local_file" "ec2-private-key" {
   filename = "./secret-key.pem"
 }
 
-resource "aws_s3_bucket" "MoBucket" {
+resource "aws_s3_bucket" "Mo-Bucket-v" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
 
@@ -33,7 +33,7 @@ resource "aws_s3_bucket" "MoBucket" {
 }
 
 resource "aws_s3_bucket_object" "bucket-object-mo" {
-  bucket = "${aws_s3_bucket.MoBucket.bucket}"
+  bucket = "${aws_s3_bucket.Mo-Bucket-v.bucket}"
   key    = "bucket-object-key"
   source = "./secret-key.pem"
 }
