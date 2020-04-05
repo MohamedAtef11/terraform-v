@@ -7,7 +7,7 @@ resource "aws_secretsmanager_secret" "aws-secret-v3" {
   name = "aws-secret-v3-yarab"
 }
 
-resource "aws_key_pair" "aws_P-key" {
+resource "aws_key_pair" "aws_Pkey" {
   key_name   = "aws_P-key"
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
