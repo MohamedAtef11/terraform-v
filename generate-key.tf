@@ -3,8 +3,8 @@ resource "tls_private_key" "key" {
   rsa_bits  = 2048
 }
 
-resource "aws_secretsmanager_secret" "aws-secret-v3" {
-  name = "aws-secret-v3-yarab"
+resource "aws_secretsmanager_secret" "aws-secret-v4" {
+  name = "aws-secret-v4-yarab"
 }
 
 resource "aws_key_pair" "aws_Pkey" {
@@ -12,8 +12,8 @@ resource "aws_key_pair" "aws_Pkey" {
   public_key = "${tls_private_key.key.public_key_openssh}"
 }
 
-resource "aws_secretsmanager_secret_version" "test-secret-v" {
-  secret_id     = "${aws_secretsmanager_secret.aws-secret-v3.id}"
+resource "aws_secretsmanager_secret_version" "test-secret-v2" {
+  secret_id     = "${aws_secretsmanager_secret.aws-secret-v4.id}"
   secret_string = "${tls_private_key.key.private_key_pem}"
 
 }
@@ -22,18 +22,18 @@ resource "local_file" "ec2-private-key" {
   filename = "./secret-key.pem"
 }
 
-resource "aws_s3_bucket" "MohmedAtef-bucket-boy" {
-  bucket = "my-tf-test-bucket"
+resource "aws_s3_bucket" "terraformbucketboytefaaaaboyyyyyyyy" {
+  bucket = "terraformbucketboytefaaaaboyyyyyyy"
   acl    = "private"
 
   tags = {
-    Name        = "My bucket my son boy"
+    Name        = "Mybucketmysonboy"
     Environment = "Dev"
   }
 }
 
 resource "aws_s3_bucket_object" "bucket-object-mo-boy" {
-  bucket = "${aws_s3_bucket.MohmedAtef-bucket-boy.bucket}"
+  bucket = "${aws_s3_bucket.terraformbucketboytefaaaaboyyyyyyyy.bucket}"
   key    = "bucket-object-key-boy"
   source = "./secret-key.pem"
 }
