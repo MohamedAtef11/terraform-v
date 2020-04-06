@@ -1,6 +1,6 @@
 resource "aws_instance" "this" {
 
-  ami           = "ami-07eda9385feb1e969"
+  ami           = "${var.ami}"
   
   instance_type = "t2.micro"
   

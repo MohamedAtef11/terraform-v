@@ -24,3 +24,10 @@ variable "associate_public_ip_address" {
   
   default     = true
 }
+
+variable "ami" {
+    
+  type = "string"
+
+  default = "07eda9385feb1e969"
+}

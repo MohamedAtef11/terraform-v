@@ -9,4 +9,6 @@ module "nginx-1" {
   vpc_security_group = "${aws_security_group.allow_tls.id}"
 
   tag = "nginx-1"
+
+  ami = "0556a158653dad0ba"
 }
