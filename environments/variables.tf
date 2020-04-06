@@ -29,5 +29,5 @@ variable "ami" {
     
   type = "string"
 
-  default = "07eda9385feb1e969"
+  default = "ami-07eda9385feb1e969"
 }

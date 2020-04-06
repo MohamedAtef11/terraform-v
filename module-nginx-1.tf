@@ -10,5 +10,5 @@ module "nginx-1" {
 
   tag = "nginx-1"
 
-  ami = "0556a158653dad0ba"
+  ami = "ami-0556a158653dad0ba"
 }
